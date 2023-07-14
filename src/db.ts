@@ -1,15 +1,18 @@
 import mongoose, { ConnectOptions } from 'mongoose';
 
-const mongoURI = 'mongodb://localhost:27017/proyectos.appointments';
+const mongoURI = 'mongodb://localhost:27017/mydatabase';
 
-mongoose.connect(mongoURI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-} as ConnectOptions);
+const connectDB = async () => {
+  try {
+    await mongoose.connect(mongoURI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    } as ConnectOptions);
+    console.log('Conexión exitosa a MongoDB');
+  } catch (error) {
+    console.error.bind(console, 'MongoDB connection error:');
+    process.exit(1); // Salir del proceso en caso de error
+  }
+};
 
-const db = mongoose.connection;
-
-db.on('error', console.error.bind(console, 'MongoDB connection error:'));
-db.once('open', () => {
-  console.log('Connected to MongoDB');
-});
+export default connectDB;
