@@ -1,28 +1,16 @@
-version: "3"
+version: '3'
 services:
-  node:
+  api:
     build:
-      context: ./app
+      context: .
       dockerfile: Dockerfile
-    volumes:
-      - ./app:/app
     ports:
-      - "3000:3000"
+      - 3000:3000
     depends_on:
       - mongo
-
   mongo:
-    image: mongo:5
+    image: mongo
     ports:
-      - "27017:27017"
-
-  express:
-    build:
-      context: ./app
-      dockerfile: Dockerfile
+      - 27018:27018
     volumes:
-      - ./app:/app
-    ports:
-      - "8080:8080"
-    depends_on:
-      - mongo
+      - ./data:/data/db
