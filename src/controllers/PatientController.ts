@@ -13,18 +13,21 @@ const PatientController = {
   },
 
   createPatient: async (req: Request, res: Response) => {
+    console.log(req.body)
     try {
-      const { name, lastName, age, phone } = req.body;
+      const { name, documentId, lastName, age, phone } = req.body;
       const patient = new Patient({
         name,
+        documentId,
         lastName,
         age,
         phone
       });
       await patient.save();
+      console.log(patient)
       res.status(201).json(patient);
     } catch (error) {
-      res.status(500).json({ error: 'Error al crear el paciente' });
+      res.status(500).json({ error: `Error al crear el paciente${error}` });
     }
   },
 
