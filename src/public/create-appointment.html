@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crear Cita</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <h1>Crear Cita</h1>
+  <label for="documentId">Número de Documento del Paciente:</label>
+  <input type="text" id="documentId" name="documentId" required>
+  <br>
+  <label for="speciality">Especialidad:</label>
+  <select id="speciality" name="speciality" required></select>
+  <br>
+  <label for="doctor">Médico:</label>
+  <select id="doctor" name="doctor" required disabled></select>
+  <br>
+  <button id="saveBtn">Guardar</button>
+
+  <script src="js/create_appointment.js"></script>
+</body>
+</html>

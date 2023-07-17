@@ -3,20 +3,20 @@ import { ISpeciality } from './speciality';
 import { IAppointment } from './appointment';
 
 export interface IDoctor extends Document {
-  nombre: string;
-  apellido: string;
+  name: string;
+  lastName: string;
   specialities: ISpeciality['_id'][];
-  consultorio: string;
-  correoContacto: string;
+  office: string;
+  contactEmail: string;
   appointments: IAppointment['_id'][];
 }
 
 const DoctorSchema: Schema = new Schema({
-  nombre: { type: String, required: true },
-  apellido: { type: String, required: true },
+  name: { type: String, required: true },
+  lastName: { type: String, required: true },
   specialities: [{ type: Schema.Types.ObjectId, ref: 'Speciality' }],
-  consultorio: { type: String, required: true },
-  correoContacto: { type: String, required: true },
+  office: { type: String, required: true },
+  contactEmail: { type: String, required: true },
   appointments: [{ type: Schema.Types.ObjectId, ref: 'Appointment' }],
 });
 

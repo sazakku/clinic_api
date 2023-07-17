@@ -13,4 +13,7 @@ router.post('/doctors', DoctorController.createDoctor);
 // Obtener un doctor por su ID
 router.get('/doctors/:id', DoctorController.getDoctorById);
 
+// Ruta para editar una especialidad
+router.put('/doctors/:id', DoctorController.editDoctor);
+
 export default router;

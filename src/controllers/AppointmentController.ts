@@ -1,5 +1,6 @@
 import Appointment from '../models/appointment';
 import Patient from '../models/patient';
+import Doctor from '../models/doctor';
 import Speciality from '../models/speciality';
 import { Request, Response } from 'express';
 
@@ -15,24 +16,27 @@ const AppointmentController = {
 
   createAppointment: async (req: Request, res: Response) => {
     try {
-      const { patientId, specialityId } = req.body;
-      const patient = await Patient.findById(patientId);
+      const { documentId, specialityId, doctorId } = req.body;
+      const patient = await Patient.findOne({ documentId: documentId });
       const speciality = await Speciality.findById(specialityId);
-      if (!patient || !speciality) {
+      const doctor = await Doctor.findById(doctorId);
+
+      if (!patient || !speciality || !doctor) {
         return res.status(404).json({ error: 'Paciente o especialidad no encontrado' });
       }
       const appointment = new Appointment({
-        patient,
-        speciality
+        patient: patient,
+        speciality: speciality,
+        doctor: doctor
       });
       await appointment.save();
       patient.appointments.push(appointment);
-      speciality.appointment.push(appointment);
       await patient.save();
-      await speciality.save();
+      doctor.appointments.push(appointment);
+      await doctor.save();
       res.status(201).json(appointment);
     } catch (error) {
-      res.status(500).json({ error: 'Error al crear la cita' });
+      res.status(500).json({ error: `Error al crear la cita: ${error}` });
     }
   },
 
@@ -59,6 +63,21 @@ const AppointmentController = {
       res.status(200).json({ message: 'Cita eliminada exitosamente' });
     } catch (error) {
       res.status(500).json({ error: 'Error al eliminar la cita' });
+    }
+  },
+
+  editAppointment: async (req: Request, res: Response) => {
+    const { id } = req.params;
+    try {
+      const updatedAppointment = await Appointment.findByIdAndUpdate(id, req.body, {
+        new: true,
+      });
+      if (!updatedAppointment) {
+        return res.status(404).json({ error: 'Appointment no encontrado' });
+      }
+      res.status(200).json(updatedAppointment);
+    } catch (error) {
+      res.status(500).json({ error: `Error al editar el Appointment: ${error}` });
     }
   }
 };

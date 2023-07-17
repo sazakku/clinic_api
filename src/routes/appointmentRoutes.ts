@@ -16,4 +16,7 @@ router.get('/appointments/:id', AppointmentController.getAppointmentById);
 // Borrar una cita por su ID
 router.delete('/appointments/:id', AppointmentController.deleteAppointmentById);
 
+// Ruta para editar una especialidad
+router.put('/appointments/:id', AppointmentController.editAppointment);
+
 export default router;

@@ -2,6 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import allRoutes from './routes/routes';
 import connectDB from './db';
+import cors from 'cors';
 
 const app = express();
 const morgan = require('morgan');
@@ -9,6 +10,8 @@ const port = 3000;
 connectDB();
 
 app.use(bodyParser.json());
+// Habilitar CORS
+app.use(cors());
 // Configuración del middleware de registro
 app.use(morgan('dev'));
 app.use(allRoutes);
