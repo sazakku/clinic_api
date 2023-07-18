@@ -7,14 +7,16 @@ export interface IAppointment extends Document {
   patient: IPatient['_id'];
   speciality: ISpeciality['_id'];
   doctor: IDoctor['_id'];
-  // Otros campos adicionales de la cita
+  date: Date;
+  time: string;
 }
 
 const AppointmentSchema: Schema = new Schema({
   patient: { type: Schema.Types.ObjectId, ref: 'Patient', required: true },
   speciality: { type: Schema.Types.ObjectId, ref: 'Speciality', required: true },
   doctor: { type: Schema.Types.ObjectId, ref: 'Doctor', required: true },
-  // Definir aquí los otros campos adicionales de la cita, como fecha, hora, estado, etc.
+  date: { type: Date, required: true },
+  time: { type: String, required: true },
 });
 
 export default mongoose.model<IAppointment>('Appointment', AppointmentSchema);

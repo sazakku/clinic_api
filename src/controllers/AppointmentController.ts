@@ -16,7 +16,7 @@ const AppointmentController = {
 
   createAppointment: async (req: Request, res: Response) => {
     try {
-      const { documentId, specialityId, doctorId } = req.body;
+      const { documentId, specialityId, doctorId, date, time } = req.body;
       const patient = await Patient.findOne({ documentId: documentId });
       const speciality = await Speciality.findById(specialityId);
       const doctor = await Doctor.findById(doctorId);
@@ -27,7 +27,9 @@ const AppointmentController = {
       const appointment = new Appointment({
         patient: patient,
         speciality: speciality,
-        doctor: doctor
+        doctor: doctor,
+        date: date,
+        time: time
       });
       await appointment.save();
       patient.appointments.push(appointment);

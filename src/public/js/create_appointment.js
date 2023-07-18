@@ -48,11 +48,15 @@ document.addEventListener("DOMContentLoaded", async () => {
   // Enviar la información al endpoint de creación de citas
   saveBtn.addEventListener("click", async () => {
     const documentId = document.getElementById("documentId").value;
+    const date = document.getElementById("date").value;
+    const time = document.getElementById("time").value;
     const specialityId = specialitySelect.value;
     const doctorId = doctorSelect.value;
 
     const appointmentData = {
       documentId: documentId,
+      date: date,
+      time: time,
       specialityId: specialityId,
       doctorId: doctorId,
     };
