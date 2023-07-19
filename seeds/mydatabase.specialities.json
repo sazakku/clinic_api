@@ -1,0 +1,63 @@
+[{
+  "_id": {
+    "$oid": "64b4b6c772aeab28e47610c4"
+  },
+  "name": "Pediatria",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64b4b70172aeab28e47610c6"
+  },
+  "name": "Medicina general",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64b4b70872aeab28e47610c8"
+  },
+  "name": "Cardiología",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64b76cc12e5414b7bba0507d"
+  },
+  "name": "Medicina interna",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64b76ccc2e5414b7bba0508c"
+  },
+  "name": "Dermatología",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64b76cd52e5414b7bba0509b"
+  },
+  "name": "Rehabilitación física",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64b76cdf2e5414b7bba050aa"
+  },
+  "name": "Psicología",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64b76ce62e5414b7bba050b9"
+  },
+  "name": "Odontología",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64b76d012e5414b7bba050c8"
+  },
+  "name": "Radiología",
+  "__v": 0
+}]

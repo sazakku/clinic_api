@@ -1,0 +1,56 @@
+[{
+  "_id": {
+    "$oid": "64b4a06a39295c587d07cadc"
+  },
+  "name": "Juan",
+  "lastName": "Perez",
+  "specialities": [],
+  "office": "404",
+  "contactEmail": "doc@med.com",
+  "appointments": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64b4b72e72aeab28e47610ca"
+  },
+  "name": "Juan",
+  "lastName": "Perez",
+  "specialities": [
+    {
+      "$oid": "64b4b70872aeab28e47610c8"
+    }
+  ],
+  "office": "404",
+  "contactEmail": "doc@med.com",
+  "appointments": [
+    {
+      "$oid": "64b4db603d490c0747cfad70"
+    },
+    {
+      "$oid": "64b4dbcdc86894978c7053fd"
+    },
+    {
+      "$oid": "64b4dbe0c86894978c70540a"
+    },
+    {
+      "$oid": "64b612f4aa103cbc98f08ed5"
+    },
+    {
+      "$oid": "64b613d0426393a751c0443f"
+    }
+  ],
+  "__v": 5
+},
+{
+  "_id": {
+    "$oid": "64b76d1a2e5414b7bba050d8"
+  },
+  "name": "Jorge",
+  "lastName": "Char",
+  "specialities": [],
+  "office": "202",
+  "contactEmail": "test@doc.com",
+  "appointments": [],
+  "__v": 0
+}]

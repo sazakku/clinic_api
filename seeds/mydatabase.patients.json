@@ -1,0 +1,12 @@
+[{
+  "_id": {
+    "$oid": "64b76d362e5414b7bba050e7"
+  },
+  "name": "Ivan ",
+  "documentId": "125612321",
+  "lastName": "botero",
+  "age": 35,
+  "phone": "3105689652",
+  "appointments": [],
+  "__v": 0
+}]
